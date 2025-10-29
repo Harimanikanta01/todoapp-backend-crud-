@@ -1,0 +1,11 @@
+const express=require("express")
+const app=express()
+app.use(express.json())
+require("dotenv").config()
+const userroutes=require("./routers/userroutes")
+const connectdb=require("./config/db")
+connectdb()
+app.use("/task",userroutes)
+app.listen(4000,()=>{
+    console.log("working")
+})
